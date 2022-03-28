@@ -1,0 +1,15 @@
+ * 사물 이미지 분류 경진대회
+전처리: 전체 데이터 중 80%를 train, 20%를 test. 128x128 resize
+데이터 증강: randomcrop, horizontalflip, cutout, cutmix
+
+모델: ResNet18
+옵티마이저: sgd
+스케줄러: ReduceLROnPlateau
+교차검증: 5-fold
+TTA: horizontalflip, rotate90, soft voting (92% -> 93%)
+
+
+ * 주차 수요 예측 AI 경진대회
+전처리: 결측치 채우기, 데이터 정규화, 중복 데이터 병합
+모델 생성: pycaret 사용. generalization을 위해 하이퍼파라매터 튜닝은 하지 않음. 성능이 가장 좋은 5개의 모델을 블랜딩.
+top5: RandomForestRegressor, catboost, BayesianRidge, LGBMRegressor, GradientBoostingRegressor
